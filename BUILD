@@ -24,11 +24,15 @@ java_library(
     name = "Greeting",
     srcs = [":Greeting.java"],
 )
-java_binary(
+java_library(
     name = "HelloWorld",
     srcs = [":HelloWorld.java"],
-    deps = [":Greeting"],
+    deps = [":Greeting"]
+)
+java_binary(
+    name = "App",
+    runtime_deps = [":HelloWorld"],
     resource_jars = [":j2ee-1.4.jar"],
-    main_class = "HelloWorld",
+#    main_class = "HelloWorld",
     create_executable = False,
 )
